@@ -11,19 +11,14 @@ invariant(FASAD_AUTH_SECRET, 'FASAD_AUTH_SECRET is not defined')
 
 const baseUrl = 'https://europe-west3-gazelle-4d5d9.cloudfunctions.net/fasadApi'
 
-// const url = addQueryParamsToUrl(`${baseUrl}/fasad-session`, { objectId: '123' })
+const url = `${baseUrl}/active-fasad-session?objectId=123`
 
-fetch(`${baseUrl}/fasad-session`, {
+fetch(url, {
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer + ${FASAD_AUTH_SECRET}`
   },
-  method: 'POST',
-  body: JSON.stringify({
-    objectId: 'objectId',
-    userId: 'userId',
-    successCallbackUrl: 'https://www.exmple.com/callbackUrl'
-  })
+  method: 'GET'
 })
   .then((res) => res.text())
   .then(console.log)
