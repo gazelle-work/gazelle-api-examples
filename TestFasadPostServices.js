@@ -18,9 +18,12 @@ fetch(`${baseUrl}/fasad-session`, {
   },
   method: 'POST',
   body: JSON.stringify({
-    objectId: 'objectId',
-    userId: 'userId',
-    successCallbackUrl: 'https://www.exmple.com/callbackUrl'
+    objectId: 'Årgångsgatan-4',
+    userId: 'fasadUserId1',
+    successCallbackUrl: 'https://www.exmple.com/callbackUrl',
+    objectMetaData: {
+      address: 'Årgångsgatan 4, 11757 Stockholm',
+    }
   })
 })
   .then((res) => res.text())
